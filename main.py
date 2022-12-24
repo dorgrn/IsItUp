@@ -1,3 +1,8 @@
+"""
+IsItUp.
+    Telegram bot that polls a website until is up and lets you know when it does!
+"""
+
 import os
 from time import sleep
 
@@ -5,11 +10,6 @@ import dotenv
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
 import requests
-
-"""
-IsItUp.
-    Bot that checks polls until a website is up and let's you know when it does!
-"""
 
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 '
