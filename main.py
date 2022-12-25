@@ -55,7 +55,7 @@ def check_webpage(update: Update, context: CallbackContext) -> None:
 
         if response.status_code == 200:
             context.bot.send_message(chat_id=update.effective_chat.id, text=f'Webpage {website} is up!')
-        else:
+        elif response.status_code != 404:
             context.bot.send_message(chat_id=update.effective_chat.id,
                                      text=f'Failed polling for {website}. Error is: {response.status_code}: {response.text}')
     except Exception as e:
@@ -77,6 +77,7 @@ def main() -> None:
     updater.dispatcher.add_handler(start_handler)
     updater.dispatcher.add_handler(track_handler)
     updater.start_polling()
+    updater.idle()
 
 
 if __name__ == "__main__":
